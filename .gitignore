@@ -136,3 +136,5 @@ mt_dnn_models
 *pyc
 run_test/
 experiments/superglue
+
+scibert_tf_uncased

@@ -1,0 +1,107 @@
+bc2:
+  data_format: Seqence
+  encoder_type: BERT
+  dropout_p: 0.3
+  enable_san: False
+  labels:
+  - O
+  - B-GENE
+  - I-GENE
+  - X
+  - CLS
+  - SEP
+  metric_meta:
+  - SeqEval
+  n_class: 6
+  loss: SeqCeCriterion
+  split_names:
+  - train
+  - dev
+  - test
+  task_type: SeqenceLabeling
+bc5chem:
+  data_format: Seqence
+  encoder_type: BERT
+  dropout_p: 0.3
+  enable_san: False
+  labels:
+  - O
+  - B-CHEM
+  - I-CHEM
+  - X
+  - CLS
+  - SEP
+  metric_meta:
+  - SeqEval
+  n_class: 6
+  loss: SeqCeCriterion
+  split_names:
+  - train
+  - dev
+  - test
+  task_type: SeqenceLabeling
+bc5disease:
+  data_format: Seqence
+  encoder_type: BERT
+  dropout_p: 0.3
+  enable_san: False
+  labels:
+  - O
+  - B-DISEASE
+  - I-DISEASE
+  - X
+  - CLS
+  - SEP
+  metric_meta:
+  - SeqEval
+  n_class: 6
+  loss: SeqCeCriterion
+  split_names:
+  - train
+  - dev
+  - test
+  task_type: SeqenceLabeling
+ncbidisease:
+  data_format: Seqence
+  encoder_type: BERT
+  dropout_p: 0.3
+  enable_san: False
+  labels:
+  - O
+  - B-Disease
+  - I-Disease
+  - X
+  - CLS                                                                                                                                                                                                                                                                                                                        - SEP                                                                                                                                                                                                                                                                                                                        metric_meta:                                                                                                                                                                                                                                                                                                                 - SeqEval                                                                                                                                                                                                                                                                                                                    n_class: 6                                                                                                                                                                                                                                                                                                                   loss: SeqCeCriterion                                                                                                                                                                                                                                                                                                         split_names:                                                                                                                                                                                                                                                                                                                 - train                                                                                                                                                                                                                                                                                                                      - dev                                                                                                                                                                                                                                                                                                                        - test                                                                                                                                                                                                                                                                                                                       task_type: SeqenceLabeling 
+chemprot:
+  data_format: PremiseAndOneHypothesis
+  encoder_type: BERT
+  enable_san: true
+  labels:
+  - f-label
+  - CPR:3
+  - CPR:4
+  - CPR:5
+  - CPR:6
+  - CPR:9
+  metric_meta:
+  - ACC
+  loss: CeCriterion
+  kd_loss: MseCriterion
+  n_class: 6
+  task_type: Classification
+ddi:
+  data_format: PremiseAndOneHypothesis
+  encoder_type: BERT
+  enable_san: true
+  labels:
+  - DDI-false
+  - DDI-effect
+  - DDI-mechanism
+  - DDI-advise
+  - DDI-int
+  metric_meta:
+  - ACC
+  loss: CeCriterion
+  kd_loss: MseCriterion
+  n_class: 5
+  task_type: Classification

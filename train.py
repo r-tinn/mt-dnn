@@ -380,7 +380,7 @@ def main():
                 with torch.no_grad():
                     test_metrics, test_predictions, scores, golds, test_ids= eval_model(model, test_data,
                                                                                         metric_meta=task_defs.metric_meta_map[prefix],
-                                                                                        use_cuda=args.cuda, with_label=False,
+                                                                                        use_cuda=args.cuda,
                                                                                         label_mapper=label_dict,
                                                                                         task_type=task_defs.task_type_map[prefix])
                 score_file = os.path.join(output_dir, '{}_test_scores_{}.json'.format(dataset, epoch))

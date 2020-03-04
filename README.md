@@ -224,3 +224,17 @@ We also used some code from: https://github.com/kevinduh/san_mrc <br/>
 For help or issues using MT-DNN, please submit a GitHub issue.
 
 For personal communication related to this package, please contact Xiaodong Liu (`xiaodl@microsoft.com`), Yu Wang (`yuwan@microsoft.com`), Pengcheng He (`penhe@microsoft.com`), Weizhu Chen (`wzchen@microsoft.com`), Jianshu Ji (`jianshuj@microsoft.com`) or Jianfeng Gao (`jfgao@microsoft.com`).
+
+### Converting models to MT-DNN (e.g. SciBERT)
+
+To create the PT files, it is easiest to forget about PyTorch and use the TF models,  MT-DNN's `convert_tf_to_pt` script works best for this... (scibert_tf_uncased contains the converted PT file)
+
+### Train BLUE with SciBERT
+
+- `python experiments/ner/prepro.py --data data/blue --output_dir data/canonical_data`
+- `python prepro_std.py --root_dir data/canonical_data --task_def experiments/ner/blue_task_def.yml --model ./scibert_files_uncased`
+- `nohup python train.py --data_dir data/canonical_data/bert_uncased --init_checkpoint mt_dnn_models/scibert.pt --train_dataset bc2,bc5chem,bc5disease,ncbidisease,chemprot,ddi --test_dataset ncbidisease --task_def experiments/ner/blue_task_def.yml`
+
+The data/blue directory can be found in scratch/t-rotinn/blue in blob storage
+scibert_files_uncased can be found in scratch/t-rotinn/scibert_files_uncased
+scibert.pt can be found in scratch/t-rotinn
